@@ -1,0 +1,83 @@
+#include<stdio.h>
+void main()
+{
+    int n,m,i,j,a[50],b,s,c[50],x[50],d=0;
+    char str[100][100];
+    //reading number of employees and goodies
+    printf("Number of employees:");
+    scanf("%d",&m);
+    printf("number of goodies");
+    scanf("%d",&n);
+
+    //reading goodies and price
+
+    printf("enter the goodies and price\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%s",str[i]);
+        scanf("%d",&c[i]);
+    }
+
+
+
+    //display readed goodies and price
+
+    printf("Goodies and Prices:\n");
+    for(i=0;i<n;i++)
+    {
+        x[i]=i+1;
+        printf("\n%d\t%s\t%d",x[i],str[i],c[i]);
+    }
+
+
+
+    //selecting goodies for the distributors
+
+    printf("\n select the goodies for the distributors\n");
+    for(i=0;i<m;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+
+
+    //displaying selected goodies for the distributers
+
+    printf("\nhere the goodies selected for distribution are:\n");
+    b=c[0];
+    s=c[0];
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(a[i]==x[j])
+            {
+                printf("\n%s\t%d",str[j],c[j]);
+
+                //finding the high price
+                if(b<c[j])
+                {
+                    b=c[j];
+                }
+                //finding the low price
+                if(s>c[j])
+                {
+                    s=c[j];
+                }
+
+            }
+        }
+    }
+
+
+    //finding difference between the low price goodie and the high price goodie selected is minimum
+   
+    d=b-s;
+
+    //displaying difference between the low price goodie and the high price goodie
+    printf("\nAnd the difference between the chosen goodie with highest price and the lowest price is\t %d",d);
+
+
+
+    
+
+}
